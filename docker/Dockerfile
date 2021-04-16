@@ -9,11 +9,13 @@ RUN apt-get update -qq \
         libpango1.0-dev \
         pkg-config \
         make \
+        build-essential \
+        cmake \
         wget
 
 # setup a minimal texlive installation
 COPY docker/texlive-profile.txt /tmp/
-ENV PATH=/usr/local/texlive/bin/x86_64-linux:$PATH
+ENV PATH=/usr/local/texlive/bin/aarch64-linux:$PATH
 RUN wget -O /tmp/install-tl-unx.tar.gz http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && \
     mkdir /tmp/install-tl && \
     tar -xzf /tmp/install-tl-unx.tar.gz -C /tmp/install-tl --strip-components=1 && \
