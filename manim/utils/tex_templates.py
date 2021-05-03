@@ -11,7 +11,7 @@ from .tex import *
 
 
 def _new_ams_template():
-    """ Returns a simple Tex Template with only basic AMS packages """
+    """Returns a simple Tex Template with only basic AMS packages"""
     preamble = r"""
 \usepackage[english]{babel}
 \usepackage{amsmath}
@@ -21,7 +21,7 @@ def _new_ams_template():
 
 
 """ Tex Template preamble used by original upstream 3b1b """
-_3b3b_preamble = r"""
+_3b1b_preamble = r"""
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -59,16 +59,16 @@ class TexTemplateLibrary(object):
 
     """
 
-    default = TexTemplate(preamble=_3b3b_preamble)
+    default = TexTemplate(preamble=_3b1b_preamble)
     """An instance of the default TeX template in manim"""
 
-    threeb1b = TexTemplate(preamble=_3b3b_preamble)
+    threeb1b = TexTemplate(preamble=_3b1b_preamble)
     """ An instance of the default TeX template used by 3b1b """
 
     ctex = TexTemplate(
         tex_compiler="xelatex",
         output_format=".xdv",
-        preamble=_3b3b_preamble.replace(
+        preamble=_3b1b_preamble.replace(
             r"\DisableLigatures{encoding = *, family = * }", r"\usepackage[UTF8]{ctex}"
         ),
     )
